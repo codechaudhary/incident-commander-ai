@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Request, status
+from fastapi import APIRouter, Depends, status
 from fastapi.responses import JSONResponse
 
 from app.core.errors import NotFoundError
@@ -41,11 +41,10 @@ async def get_analysis(
     status_code=status.HTTP_202_ACCEPTED,
 )
 async def trigger_analysis(
-    request: Request,
+    body: TriggerAnalysisRequest,
     service: AnalysisServiceDep,
 ) -> JSONResponse:
-    body = TriggerAnalysisRequest.model_validate(await request.json())
-    queued = await service.trigger(body.trace_id, body.alert_id)
+    queued = await service.trigger(body.traceId, body.alertId)
     queued.status = AnalysisStatus.PENDING
     queued.message = "Analysis queued"
     return JSONResponse(

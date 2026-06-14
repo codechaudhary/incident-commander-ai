@@ -76,9 +76,9 @@ class PendingAnalysisResponse(CamelModel):
     message: str
 
 
-class TriggerAnalysisRequest(CamelModel):
-    trace_id: str
-    alert_id: str | None = None
+class TriggerAnalysisRequest(BaseModel):
+    traceId: str
+    alertId: str | None = None
 
 
 class HealthResponse(BaseModel):
