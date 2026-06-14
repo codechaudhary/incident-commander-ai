@@ -4,6 +4,7 @@ com/incident/simulator/config/OpenApiConfig.class
 com/incident/simulator/service/SimulatorService.class
 com/incident/simulator/dto/SimulateResponse.class
 com/incident/simulator/client/TraceClient.class
+com/incident/simulator/config/CorsConfig.class
 com/incident/simulator/controller/SimulatorController.class
 com/incident/simulator/Application.class
 com/incident/simulator/dto/SimulateRequest.class

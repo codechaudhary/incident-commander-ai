@@ -7,4 +7,5 @@
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/order-simulator/src/main/java/com/incident/simulator/service/SimulatorService.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/order-simulator/src/main/java/com/incident/simulator/exception/GlobalExceptionHandler.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/order-simulator/src/main/java/com/incident/simulator/config/OpenApiConfig.java
+/Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/order-simulator/src/main/java/com/incident/simulator/config/CorsConfig.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/order-simulator/src/main/java/com/incident/simulator/client/TraceClient.java

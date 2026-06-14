@@ -26,6 +26,7 @@ com/incident/trace/event/ErrorSpanPayload.class
 com/incident/trace/entity/SpanEntity$SpanEntityBuilder.class
 com/incident/trace/event/ErrorSpanPayload$ErrorSpanPayloadBuilder.class
 com/incident/trace/exception/DuplicateTraceException.class
+com/incident/trace/event/TracePersistedEventListener.class
 com/incident/trace/dto/request/OtlpSpanDto$OtlpSpanDtoBuilder.class
 com/incident/trace/entity/SpanEntity.class
 com/incident/trace/dto/response/TraceIngestResponse$TraceIngestResponseBuilder.class
@@ -49,13 +50,16 @@ com/incident/trace/dto/request/OtlpEventDto.class
 com/incident/trace/service/TraceIngestionService.class
 com/incident/trace/dto/response/ErrorResponse.class
 com/incident/trace/config/KafkaTopicProperties.class
+com/incident/trace/event/TracePersistedApplicationEvent.class
 com/incident/trace/exception/GlobalExceptionHandler.class
 com/incident/trace/config/KafkaTopicConfig.class
 com/incident/trace/kafka/TraceEventProducer.class
 com/incident/trace/dto/response/TraceDetailResponse$TraceDetailResponseBuilder.class
 com/incident/trace/dto/response/PagedResponse.class
+com/incident/trace/config/OpenApiConfig.class
 com/incident/trace/dto/request/ResourceSpanDto$ResourceSpanDtoBuilder.class
 com/incident/trace/service/TraceQueryService.class
 com/incident/trace/event/TraceIngestedPayload.class
+com/incident/trace/event/TraceEventPublisher.class
 com/incident/trace/enums/SpanStatus.class
 com/incident/trace/dto/request/AttributeDto.class
