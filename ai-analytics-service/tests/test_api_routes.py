@@ -40,6 +40,24 @@ async def test_trigger_and_get_analysis_do_not_emit_alias_warnings(tmp_path):
             )
             get_response = await client.get("/api/v1/analyses/trace-123")
 
+            # Test empty body
+            empty_body_response = await client.post(
+                "/api/v1/analyses/trigger",
+                content="",
+                headers={"Content-Type": "application/json"},
+            )
+            # Test invalid JSON
+            invalid_json_response = await client.post(
+                "/api/v1/analyses/trigger",
+                content="{invalid",
+                headers={"Content-Type": "application/json"},
+            )
+            # Test missing fields
+            missing_fields_response = await client.post(
+                "/api/v1/analyses/trigger",
+                json={"alertId": "alert-123"},
+            )
+
     await state.analysis_service.llm_service.close()
     await state.analysis_service.publisher.close()
     state.analysis_service = None
@@ -48,3 +66,7 @@ async def test_trigger_and_get_analysis_do_not_emit_alias_warnings(tmp_path):
     assert get_response.status_code == 202
     assert trigger_response.json()["traceId"] == "trace-123"
     assert get_response.json()["traceId"] == "trace-123"
+
+    assert empty_body_response.status_code == 422
+    assert invalid_json_response.status_code == 422
+    assert missing_fields_response.status_code == 422
