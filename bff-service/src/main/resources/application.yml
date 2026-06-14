@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: bff-service
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  main:
+    web-application-type: servlet
+
+app:
+  services:
+    trace:
+      url: ${TRACE_SERVICE_URL:http://localhost:8082}
+    alert:
+      url: ${ALERT_SERVICE_URL:http://localhost:8083}
+    ai:
+      url: ${AI_SERVICE_URL:http://localhost:8090}
+
+logging:
+  level:
+    com.incident.bff: DEBUG
+    org.springframework.web.reactive.function.client: DEBUG
