@@ -20,9 +20,9 @@ public class RedisSubscriberConfig {
         ReactiveRedisMessageListenerContainer container = new ReactiveRedisMessageListenerContainer(connectionFactory);
         
         container.receive(
-                new ChannelTopic("alerts-live"),
-                new ChannelTopic("analysis-live"),
-                new ChannelTopic("traces-live")
+                new ChannelTopic("alerts:live"),
+                new ChannelTopic("analysis:live"),
+                new ChannelTopic("traces:live")
         ).subscribe(message -> {
             String channel = message.getChannel();
             String payload = message.getMessage();

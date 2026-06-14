@@ -5,7 +5,7 @@ import com.incident.bff.client.AlertClient;
 import com.incident.bff.client.TraceClient;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.server.reactive.ServerHttpRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,15 +26,21 @@ public class ProxyController {
 
     @GetMapping(value = "/traces", produces = "application/json")
     @Operation(summary = "Proxy to GET /api/v1/traces", description = "Passes query parameters down to trace-service.")
-    public Mono<JsonNode> getTraces(ServerHttpRequest request) {
-        String query = request.getURI().getQuery();
+    public Mono<JsonNode> getTraces(HttpServletRequest request) {
+        String query = request.getQueryString();
         return traceClient.getTraces(query == null ? "" : query);
     }
 
     @GetMapping(value = "/alerts", produces = "application/json")
     @Operation(summary = "Proxy to GET /api/v1/alerts", description = "Passes query parameters down to alert-service.")
-    public Mono<JsonNode> getAlerts(ServerHttpRequest request) {
-        String query = request.getURI().getQuery();
+    public Mono<JsonNode> getAlerts(HttpServletRequest request) {
+        String query = request.getQueryString();
         return alertClient.getAlerts(query == null ? "" : query);
+    }
+
+    @org.springframework.web.bind.annotation.PatchMapping(value = "/alerts/{alertId}/status", produces = "application/json", consumes = "application/json")
+    @Operation(summary = "Proxy to PATCH /api/v1/alerts/{alertId}/status")
+    public Mono<JsonNode> updateAlertStatus(@org.springframework.web.bind.annotation.PathVariable String alertId, @org.springframework.web.bind.annotation.RequestBody JsonNode body) {
+        return alertClient.updateAlertStatus(alertId, body);
     }
 }

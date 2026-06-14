@@ -2,6 +2,7 @@
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/bff-service/src/main/java/com/incident/bff/client/AiClient.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/bff-service/src/main/java/com/incident/bff/client/AlertClient.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/bff-service/src/main/java/com/incident/bff/client/TraceClient.java
+/Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/bff-service/src/main/java/com/incident/bff/config/CorsConfig.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/bff-service/src/main/java/com/incident/bff/config/OpenApiConfig.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/bff-service/src/main/java/com/incident/bff/config/RedisSubscriberConfig.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/bff-service/src/main/java/com/incident/bff/config/WebClientConfig.java

@@ -18,13 +18,13 @@ public class RedisMessageRelay {
     public void relayMessage(String channel, String payload) {
         String topic;
         switch (channel) {
-            case "alerts-live":
+            case "alerts:live":
                 topic = "/topic/alerts";
                 break;
-            case "analysis-live":
+            case "analysis:live":
                 topic = "/topic/analysis";
                 break;
-            case "traces-live":
+            case "traces:live":
                 topic = "/topic/traces";
                 break;
             default:

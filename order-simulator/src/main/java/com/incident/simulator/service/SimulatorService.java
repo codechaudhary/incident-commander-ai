@@ -41,10 +41,11 @@ public class SimulatorService {
         int httpStatus = 200;
         String errorMessage = "OK";
         
-        if (request.getFailureType() == FailureType.DB_TIMEOUT || request.getFailureType() == FailureType.RUNTIME_EXCEPTION) {
+        if (request.getFailureType() != FailureType.NONE) {
             statusCode = 2; // ERROR
-            httpStatus = 500;
-            errorMessage = request.getFailureType() == FailureType.DB_TIMEOUT ? "DB timeout after " + request.getDelayMs() + "ms" : "RuntimeException occurred";
+            httpStatus = request.getFailureType() == FailureType.SLOW_RESPONSE ? 504 : 500;
+            errorMessage = request.getFailureType() == FailureType.DB_TIMEOUT ? "DB timeout after " + request.getDelayMs() + "ms" : 
+                           (request.getFailureType() == FailureType.SLOW_RESPONSE ? "Gateway Timeout: Slow response" : "RuntimeException occurred");
         }
 
         ObjectNode tracePayload = generateOtlpJson(traceId, rootSpanId, childSpanId, startNanos, endNanos, statusCode, httpStatus, errorMessage, request.getFailureType());

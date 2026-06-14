@@ -1,6 +1,7 @@
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/TraceServiceApplication.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/config/KafkaTopicConfig.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/config/KafkaTopicProperties.java
+/Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/config/OpenApiConfig.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/controller/TraceController.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/dto/request/AttributeDto.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/dto/request/AttributeValueDto.java
@@ -23,8 +24,11 @@
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/enums/SpanStatus.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/enums/TraceStatus.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/event/ErrorSpanPayload.java
+/Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/event/TraceEventPublisher.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/event/TraceIngestedEvent.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/event/TraceIngestedPayload.java
+/Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/event/TracePersistedApplicationEvent.java
+/Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/event/TracePersistedEventListener.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/exception/DuplicateTraceException.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/exception/GlobalExceptionHandler.java
 /Users/harshitchaudhary/Documents/Workspace-ai-incident-commander/incident-commander-ai/trace-service/src/main/java/com/incident/trace/exception/InvalidTracePayloadException.java
