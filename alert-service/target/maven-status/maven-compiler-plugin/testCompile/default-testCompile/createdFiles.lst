@@ -1,5 +1,0 @@
-com/incident/alert/repository/AlertRepositoryTest.class
-com/incident/alert/controller/AlertControllerTest.class
-com/incident/alert/service/AlertQueryServiceTest.class
-com/incident/alert/service/AlertCreationServiceTest.class
-com/incident/alert/kafka/TraceEventConsumerIntegrationTest.class
