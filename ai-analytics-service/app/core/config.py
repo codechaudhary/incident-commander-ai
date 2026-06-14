@@ -16,8 +16,11 @@ class Settings(BaseSettings):
     host: str = "0.0.0.0"
     port: int = 8090
 
+    storage_backend: Literal["json", "postgresql"] = "json"
+    json_database_path: str = "data/ai_analysis.json"
+
     database_url: PostgresDsn = Field(
-        default="postgresql://incidents:incidents@postgres:5432/incidents"
+        default="postgresql://incidents:incidents@localhost:5432/incidents"
     )
 
     kafka_bootstrap_servers: str = "kafka:9092"
@@ -27,6 +30,7 @@ class Settings(BaseSettings):
 
     redis_url: RedisDsn = "redis://redis:6379"
     redis_analysis_channel: str = "analysis:live"
+    redis_publish_enabled: bool = False
 
     llm_provider: Literal["opencode", "stub"] = "stub"
     opencode_api_key: str | None = None
@@ -35,9 +39,9 @@ class Settings(BaseSettings):
         "deepseek-v4-flash-free,qwen3.6-plus-free,"
         "minimax-m3-free,nemotron-3-ultra-free"
     )
-    llm_max_tokens: int = 500
+    llm_max_tokens: int = 4500
     llm_temperature: float = 0.2
-    llm_timeout_seconds: float = 30.0
+    llm_timeout_seconds: float = 180.0
 
     @computed_field  # type: ignore[prop-decorator]
     @property
