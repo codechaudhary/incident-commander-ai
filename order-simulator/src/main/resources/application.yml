@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: order-simulator
+
+app:
+  services:
+    trace-url: http://localhost:8082
+
+logging:
+  level:
+    root: INFO
+    com.incident: DEBUG
