@@ -13,13 +13,18 @@ import { getStompClient } from "@/lib/ws";
 export default function IncidentDetail({ params }: { params: { traceId: string } }) {
   const queryClient = useQueryClient();
 
+  const isPending =
+    (data: ReturnType<typeof useQuery<Awaited<ReturnType<typeof getIncidentDetail>>>>["data"]) =>
+      !data?.analysis || data?.analysis?.status === "PENDING" || data?.analysis?.status === "PROCESSING";
+
   const { data, isLoading } = useQuery({
     queryKey: ["incident", params.traceId],
     queryFn: () => getIncidentDetail(params.traceId),
+    refetchIntervalInBackground: false,
   });
 
   useEffect(() => {
-    // Re-fetch incident when an analysis completes to show AI results automatically
+    // Also re-fetch incident when an analysis completes via WebSocket push
     const client = getStompClient();
     const onConnect = () => {
       client.subscribe("/topic/analysis", (message) => {
@@ -42,6 +47,9 @@ export default function IncidentDetail({ params }: { params: { traceId: string }
 
   if (isLoading) return <div className="min-h-screen flex items-center justify-center"><div className="w-8 h-8 border-t-2 border-foreground animate-spin rounded-full" /></div>;
   if (!data) return <div className="text-center mt-20 font-mono text-accent-red">Incident Not Found</div>;
+
+  const analysisStatus = data.analysis?.status;
+  const analysisRunning = !data.analysis || analysisStatus === "PENDING" || analysisStatus === "PROCESSING";
 
   return (
     <motion.div initial="hidden" animate="visible" exit="exit" variants={containerVariants} className="max-w-6xl w-full mx-auto p-6 md:p-12">
@@ -106,28 +114,54 @@ export default function IncidentDetail({ params }: { params: { traceId: string }
           )}
 
           <Card title="AI Analysis">
-            {!data.analysis ? (
-              <div className="flex flex-col gap-2 p-4 border border-border-color border-dashed bg-black/30">
-                <div className="font-mono text-sm tracking-wider uppercase text-secondary-text">
-                  AI Analysis Engine Offline
+            {analysisRunning ? (
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3 text-secondary-text text-sm font-mono">
+                  <div className="w-4 h-4 border-t-2 border-primary rounded-full animate-spin" />
+                  {!data.analysis ? "Starting AI analysis..." : "AI is analyzing the incident..."}
                 </div>
-                <p className="text-xs text-secondary-text/80">
-                  The automated root cause analysis service is currently unavailable or disabled in this environment. Manual investigation is required for this trace.
-                </p>
               </div>
-            ) : data.analysis.status === "FAILED" ? (
+            ) : analysisStatus === "FAILED" ? (
               <p className="text-accent-red font-mono text-sm">Analysis failed to generate.</p>
-            ) : (
-              <div>
-                <p className="text-foreground/90 text-sm leading-relaxed mb-4">{data.analysis.rootCause}</p>
-                <h4 className="font-mono text-xs uppercase text-secondary-text mb-2 tracking-wider">Recommendations</h4>
-                <ul className="list-disc pl-5 text-sm text-foreground/80 space-y-1 mb-4">
-                  {data.analysis.recommendations.map((rec, i) => <li key={i}>{rec}</li>)}
-                </ul>
-                <div className="font-mono text-xs text-secondary-text">Confidence: {data.analysis.confidenceScore}</div>
+            ) : analysisStatus === "COMPLETED" ? (
+              <div className="flex flex-col gap-6">
+                <div>
+                  <h3 className="font-mono text-xs tracking-wider uppercase text-secondary-text mb-2">Root Cause</h3>
+                  <p className="text-sm">{data.analysis.rootCause}</p>
+                </div>
+                {data.analysis.affectedServices && data.analysis.affectedServices.length > 0 && (
+                  <div>
+                    <h3 className="font-mono text-xs tracking-wider uppercase text-secondary-text mb-2">Affected Services</h3>
+                    <div className="flex gap-2 flex-wrap">
+                      {data.analysis.affectedServices.map(service => (
+                        <span key={service} className="px-2 py-1 border border-border-color text-xs font-mono">
+                          {service}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {data.analysis.recommendations && data.analysis.recommendations.length > 0 && (
+                  <div>
+                    <h3 className="font-mono text-xs tracking-wider uppercase text-secondary-text mb-2">Recommendations</h3>
+                    <ul className="list-disc list-inside text-sm flex flex-col gap-1">
+                      {data.analysis.recommendations.map((rec, i) => (
+                        <li key={i}>{rec}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {data.analysis.confidenceScore && (
+                  <div className="mt-4 pt-4 border-t border-border-color/50 flex justify-between items-center text-xs font-mono text-secondary-text">
+                    <span>AI Confidence: {(data.analysis.confidenceScore * 100).toFixed(0)}%</span>
+                    {data.analysis.latencyMs && <span>Latency: {data.analysis.latencyMs}ms</span>}
+                    {data.analysis.modelUsed && <span className="opacity-50">{data.analysis.modelUsed}</span>}
+                  </div>
+                )}
               </div>
-            )}
+            ) : null}
           </Card>
+
         </motion.div>
       </div>
     </motion.div>

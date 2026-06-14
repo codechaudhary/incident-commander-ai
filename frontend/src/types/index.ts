@@ -62,6 +62,7 @@ export interface AnalysisDto {
   recommendations: string[];
   confidenceScore: number | null;
   modelUsed: string | null;
+  latencyMs?: number | null;
   createdAt: string;
   completedAt: string | null;
 }
@@ -110,6 +111,7 @@ export interface WsAnalysisMessage {
   rootCause: string;
   recommendations: string[];
   confidenceScore: number;
+  latencyMs?: number | null;
   completedAt: string;
 }
 

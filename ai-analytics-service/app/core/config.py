@@ -1,3 +1,4 @@
+from __future__ import annotations
 from functools import lru_cache
 from typing import Literal
 
@@ -16,7 +17,7 @@ class Settings(BaseSettings):
     host: str = "0.0.0.0"
     port: int = 8090
 
-    storage_backend: Literal["json", "postgresql"] = "json"
+    storage_backend: Literal["json", "postgresql", "redis"] = "json"
     json_database_path: str = "data/ai_analysis.json"
 
     database_url: PostgresDsn = Field(

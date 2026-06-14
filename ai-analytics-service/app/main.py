@@ -1,3 +1,4 @@
+from __future__ import annotations
 # ruff: noqa: E402
 import sys
 from contextlib import asynccontextmanager
@@ -20,6 +21,7 @@ from app.core.config import get_settings
 from app.core.errors import NotFoundError, not_found_handler, unhandled_exception_handler
 from app.core.logging import configure_logging
 from app.db.json_repository import JsonAnalysisStore
+from app.db.redis_repository import RedisAnalysisStore
 from app.db.repository import AnalysisRepository
 from app.db.session import AsyncSessionLocal, engine
 from app.kafka.consumer import TraceEventConsumer
@@ -42,15 +44,27 @@ async def postgres_repository_factory():
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     import app.main_state as state
+    from app.models.database import Base
+    from app.db.session import engine
+
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
     publisher = AnalysisPublisher(settings)
     llm_service = LLMService(settings)
-    json_store = JsonAnalysisStore(settings.json_database_path)
-    repository_factory = (
-        json_store.repository
-        if settings.storage_backend == "json"
-        else postgres_repository_factory
-    )
+    
+    json_store = None
+    redis_store = None
+    
+    if settings.storage_backend == "json":
+        json_store = JsonAnalysisStore(settings.json_database_path)
+        repository_factory = json_store.repository
+    elif settings.storage_backend == "redis":
+        redis_store = RedisAnalysisStore(str(settings.redis_url))
+        repository_factory = redis_store.repository
+    else:
+        repository_factory = postgres_repository_factory
+
     analysis_service = AnalysisService(
         repository_factory=repository_factory,
         llm_service=llm_service,
@@ -69,6 +83,8 @@ async def lifespan(app: FastAPI):
     finally:
         if consumer:
             await consumer.stop()
+        if redis_store:
+            await redis_store.close()
         await llm_service.close()
         await publisher.close()
         await engine.dispose()

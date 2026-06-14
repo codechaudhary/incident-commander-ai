@@ -1,3 +1,4 @@
+from __future__ import annotations
 from datetime import datetime
 from uuid import UUID
 
@@ -65,6 +66,7 @@ class AnalysisDto(CamelModel):
     model_used: str | None = None
     prompt_tokens: int | None = None
     completion_tokens: int | None = None
+    latency_ms: int | None = None
     created_at: datetime
     completed_at: datetime | None = None
 
@@ -79,6 +81,13 @@ class PendingAnalysisResponse(CamelModel):
 class TriggerAnalysisRequest(BaseModel):
     traceId: str
     alertId: str | None = None
+    # Optional trace context — when provided, the LLM analyzes this data directly
+    rootService: str | None = None
+    rootOperation: str | None = None
+    status: str | None = None
+    failureType: str | None = None
+    durationMs: int | None = None
+    errorSpans: list[dict] | None = None
 
 
 class HealthResponse(BaseModel):

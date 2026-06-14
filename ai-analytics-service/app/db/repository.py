@@ -1,4 +1,5 @@
-from datetime import UTC, datetime
+from __future__ import annotations
+from datetime import timezone, datetime
 from uuid import uuid4
 
 from sqlalchemy import select, update
@@ -23,6 +24,7 @@ def to_analysis_dto(row: AIAnalysis) -> AnalysisDto:
         model_used=row.model_used,
         prompt_tokens=row.prompt_tokens,
         completion_tokens=row.completion_tokens,
+        latency_ms=getattr(row, "latency_ms", None),
         created_at=row.created_at,
         completed_at=row.completed_at,
     )
@@ -86,7 +88,7 @@ class AnalysisRepository:
                 model_used=model_used,
                 prompt_tokens=prompt_tokens,
                 completion_tokens=completion_tokens,
-                completed_at=datetime.now(UTC),
+                completed_at=datetime.now(timezone.utc),
             )
         )
         await self.session.commit()
@@ -102,7 +104,7 @@ class AnalysisRepository:
             .values(
                 status=AnalysisStatus.FAILED.value,
                 root_cause=message[:2000],
-                completed_at=datetime.now(UTC),
+                completed_at=datetime.now(timezone.utc),
             )
         )
         await self.session.commit()

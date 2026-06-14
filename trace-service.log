@@ -44584,3 +44584,3526 @@ Hibernate:
             on t1_0.trace_id=se1_0.trace_id 
     where
         t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.status=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0 
+    where
+        te1_0.status=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+2026-06-14T22:11:04.845+05:30  INFO 51051 --- [nio-8082-exec-1] c.i.t.s.impl.TraceIngestionServiceImpl   : Starting trace ingestion. traceId=3866000aca9d4f959afa53a3191f6cdf
+2026-06-14T22:11:04.874+05:30  INFO 51051 --- [nio-8082-exec-1] c.i.t.s.impl.TraceIngestionServiceImpl   : Error span detected. traceId=3866000aca9d4f959afa53a3191f6cdf failureType=DB_TIMEOUT
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.trace_id=?
+2026-06-14T22:11:05.196+05:30  INFO 51051 --- [nio-8082-exec-1] c.i.t.s.impl.TraceIngestionServiceImpl   : Trace persisted successfully. traceId=3866000aca9d4f959afa53a3191f6cdf spanCount=2 status=ERROR
+Hibernate: 
+    insert 
+    into
+        traces
+        (created_at, duration_ms, ended_at, failure_type, root_operation, root_service, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        spans
+        (attributes, created_at, duration_ms, ended_at, events, operation, parent_span_id, service_name, span_id, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        spans
+        (attributes, created_at, duration_ms, ended_at, events, operation, parent_span_id, service_name, span_id, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-14T22:11:05.406+05:30  INFO 51051 --- [nio-8082-exec-1] c.i.trace.kafka.KafkaTraceEventProducer  : Published trace event. traceId=3866000aca9d4f959afa53a3191f6cdf topic=trace-ingested-topic
+2026-06-14T22:11:05.406+05:30  INFO 51051 --- [nio-8082-exec-1] c.i.t.event.TracePersistedEventListener  : Trace event published after successful commit. traceId=3866000aca9d4f959afa53a3191f6cdf spanCount=2
+2026-06-14T22:11:26.663+05:30  INFO 51051 --- [nio-8082-exec-4] c.i.t.s.impl.TraceIngestionServiceImpl   : Starting trace ingestion. traceId=719dad73bdd54913a89fbbfbaf4f167b
+2026-06-14T22:11:26.664+05:30  INFO 51051 --- [nio-8082-exec-4] c.i.t.s.impl.TraceIngestionServiceImpl   : Error span detected. traceId=719dad73bdd54913a89fbbfbaf4f167b failureType=DB_TIMEOUT
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.trace_id=?
+2026-06-14T22:11:26.674+05:30  INFO 51051 --- [nio-8082-exec-4] c.i.t.s.impl.TraceIngestionServiceImpl   : Trace persisted successfully. traceId=719dad73bdd54913a89fbbfbaf4f167b spanCount=2 status=ERROR
+Hibernate: 
+    insert 
+    into
+        traces
+        (created_at, duration_ms, ended_at, failure_type, root_operation, root_service, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        spans
+        (attributes, created_at, duration_ms, ended_at, events, operation, parent_span_id, service_name, span_id, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        spans
+        (attributes, created_at, duration_ms, ended_at, events, operation, parent_span_id, service_name, span_id, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-14T22:11:26.680+05:30  INFO 51051 --- [nio-8082-exec-4] c.i.trace.kafka.KafkaTraceEventProducer  : Published trace event. traceId=719dad73bdd54913a89fbbfbaf4f167b topic=trace-ingested-topic
+2026-06-14T22:11:26.680+05:30  INFO 51051 --- [nio-8082-exec-4] c.i.t.event.TracePersistedEventListener  : Trace event published after successful commit. traceId=719dad73bdd54913a89fbbfbaf4f167b spanCount=2
+2026-06-14T22:19:00.912+05:30  INFO 51051 --- [nio-8082-exec-5] c.i.t.s.impl.TraceIngestionServiceImpl   : Starting trace ingestion. traceId=8d470f3a1e5640688f7cf31c2e9a3d22
+2026-06-14T22:19:00.935+05:30  INFO 51051 --- [nio-8082-exec-5] c.i.t.s.impl.TraceIngestionServiceImpl   : Error span detected. traceId=8d470f3a1e5640688f7cf31c2e9a3d22 failureType=DB_TIMEOUT
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.trace_id=?
+2026-06-14T22:19:01.134+05:30  INFO 51051 --- [nio-8082-exec-5] c.i.t.s.impl.TraceIngestionServiceImpl   : Trace persisted successfully. traceId=8d470f3a1e5640688f7cf31c2e9a3d22 spanCount=2 status=ERROR
+Hibernate: 
+    insert 
+    into
+        traces
+        (created_at, duration_ms, ended_at, failure_type, root_operation, root_service, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        spans
+        (attributes, created_at, duration_ms, ended_at, events, operation, parent_span_id, service_name, span_id, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        spans
+        (attributes, created_at, duration_ms, ended_at, events, operation, parent_span_id, service_name, span_id, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-14T22:19:01.190+05:30  INFO 51051 --- [nio-8082-exec-5] c.i.trace.kafka.KafkaTraceEventProducer  : Published trace event. traceId=8d470f3a1e5640688f7cf31c2e9a3d22 topic=trace-ingested-topic
+2026-06-14T22:19:01.191+05:30  INFO 51051 --- [nio-8082-exec-5] c.i.t.event.TracePersistedEventListener  : Trace event published after successful commit. traceId=8d470f3a1e5640688f7cf31c2e9a3d22 spanCount=2
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.status=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0 
+    where
+        te1_0.status=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.status=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0 
+    where
+        te1_0.status=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.status=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0 
+    where
+        te1_0.status=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+2026-06-14T22:23:20.090+05:30  INFO 51051 --- [nio-8082-exec-8] c.i.t.s.impl.TraceIngestionServiceImpl   : Starting trace ingestion. traceId=9a9020830f5a4994aa1301bdd3154d33
+2026-06-14T22:23:20.103+05:30  INFO 51051 --- [nio-8082-exec-8] c.i.t.s.impl.TraceIngestionServiceImpl   : Error span detected. traceId=9a9020830f5a4994aa1301bdd3154d33 failureType=RUNTIME_EXCEPTION
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.trace_id=?
+2026-06-14T22:23:20.163+05:30  INFO 51051 --- [nio-8082-exec-8] c.i.t.s.impl.TraceIngestionServiceImpl   : Trace persisted successfully. traceId=9a9020830f5a4994aa1301bdd3154d33 spanCount=2 status=ERROR
+Hibernate: 
+    insert 
+    into
+        traces
+        (created_at, duration_ms, ended_at, failure_type, root_operation, root_service, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        spans
+        (attributes, created_at, duration_ms, ended_at, events, operation, parent_span_id, service_name, span_id, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        spans
+        (attributes, created_at, duration_ms, ended_at, events, operation, parent_span_id, service_name, span_id, started_at, status, trace_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-14T22:23:20.480+05:30  INFO 51051 --- [nio-8082-exec-8] c.i.trace.kafka.KafkaTraceEventProducer  : Published trace event. traceId=9a9020830f5a4994aa1301bdd3154d33 topic=trace-ingested-topic
+2026-06-14T22:23:20.483+05:30  INFO 51051 --- [nio-8082-exec-8] c.i.t.event.TracePersistedEventListener  : Trace event published after successful commit. traceId=9a9020830f5a4994aa1301bdd3154d33 spanCount=2
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.status=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0 
+    where
+        te1_0.status=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.status=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0 
+    where
+        te1_0.status=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.trace_id=?
+Hibernate: 
+    select
+        se1_0.id,
+        se1_0.attributes,
+        se1_0.created_at,
+        se1_0.duration_ms,
+        se1_0.ended_at,
+        se1_0.events,
+        se1_0.operation,
+        se1_0.parent_span_id,
+        se1_0.service_name,
+        se1_0.span_id,
+        se1_0.started_at,
+        se1_0.status,
+        se1_0.trace_id 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.trace_id=?
+Hibernate: 
+    select
+        se1_0.id,
+        se1_0.attributes,
+        se1_0.created_at,
+        se1_0.duration_ms,
+        se1_0.ended_at,
+        se1_0.events,
+        se1_0.operation,
+        se1_0.parent_span_id,
+        se1_0.service_name,
+        se1_0.span_id,
+        se1_0.started_at,
+        se1_0.status,
+        se1_0.trace_id 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.trace_id=?
+Hibernate: 
+    select
+        se1_0.id,
+        se1_0.attributes,
+        se1_0.created_at,
+        se1_0.duration_ms,
+        se1_0.ended_at,
+        se1_0.events,
+        se1_0.operation,
+        se1_0.parent_span_id,
+        se1_0.service_name,
+        se1_0.span_id,
+        se1_0.started_at,
+        se1_0.status,
+        se1_0.trace_id 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.trace_id=?
+Hibernate: 
+    select
+        se1_0.id,
+        se1_0.attributes,
+        se1_0.created_at,
+        se1_0.duration_ms,
+        se1_0.ended_at,
+        se1_0.events,
+        se1_0.operation,
+        se1_0.parent_span_id,
+        se1_0.service_name,
+        se1_0.span_id,
+        se1_0.started_at,
+        se1_0.status,
+        se1_0.trace_id 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.status=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0 
+    where
+        te1_0.status=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.status=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0 
+    where
+        te1_0.status=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        te1_0.id,
+        te1_0.created_at,
+        te1_0.duration_ms,
+        te1_0.ended_at,
+        te1_0.failure_type,
+        te1_0.root_operation,
+        te1_0.root_service,
+        te1_0.trace_id,
+        te1_0.started_at,
+        te1_0.status 
+    from
+        traces te1_0 
+    where
+        te1_0.status=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0 
+    where
+        te1_0.status=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(te1_0.id) 
+    from
+        traces te1_0
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?
+Hibernate: 
+    select
+        count(se1_0.id) 
+    from
+        spans se1_0 
+    left join
+        traces t1_0 
+            on t1_0.trace_id=se1_0.trace_id 
+    where
+        t1_0.trace_id=?

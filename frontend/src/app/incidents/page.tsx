@@ -20,8 +20,8 @@ export default function IncidentList() {
   });
 
   const { data: alertsData, isLoading: isLoadingAlerts } = useQuery({
-    queryKey: ["alerts", "OPEN"],
-    queryFn: () => getAlerts("OPEN", 100),
+    queryKey: ["alerts", "ALL"],
+    queryFn: () => getAlerts(undefined, 100),
     refetchInterval: 10000,
   });
 

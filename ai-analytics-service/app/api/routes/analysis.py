@@ -1,6 +1,8 @@
+from __future__ import annotations
+import asyncio
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, BackgroundTasks, Depends, status
 from fastapi.responses import JSONResponse
 
 from app.core.errors import NotFoundError
@@ -44,9 +46,17 @@ async def trigger_analysis(
     body: TriggerAnalysisRequest,
     service: AnalysisServiceDep,
 ) -> JSONResponse:
+    """
+    Immediately queue AND start background LLM analysis for the given trace.
+    Returns 202 with PENDING status right away; poll GET /{trace_id} for result.
+    """
     queued = await service.trigger(body.traceId, body.alertId)
-    queued.status = AnalysisStatus.PENDING
-    queued.message = "Analysis queued"
+
+    # Fire the actual LLM processing in the background (don't await it)
+    asyncio.create_task(
+        service.process_from_trigger(body, queued.analysis_id)
+    )
+
     return JSONResponse(
         content=queued.model_dump(mode="json", by_alias=True),
         status_code=status.HTTP_202_ACCEPTED,

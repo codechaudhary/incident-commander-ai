@@ -8953,3 +8953,727 @@ Caused by: java.net.ConnectException: Connection refused
 2026-06-14T21:38:38.899+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [3630cf5a] [e6a278aa-28] Response 200 OK
 2026-06-14T21:38:38.899+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [7651271c] [1880a034-32] Response 200 OK
 2026-06-14T21:38:38.905+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [dc613c7] [c39e46ff-33] Response 200 OK
+2026-06-14T21:41:13.233+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [2c6e1b4] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T21:41:13.238+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-2] o.s.w.r.f.client.ExchangeFunctions       : [66e271de] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T21:41:13.239+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-5] o.s.w.r.f.client.ExchangeFunctions       : [6d4db80f] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T21:41:13.263+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [2d4139a] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T21:41:13.264+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [36c408b2] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T21:41:13.266+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [7adb4292] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T21:41:13.266+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [4f25c73c] HTTP GET http://localhost:8090/api/v1/analyses
+2026-06-14T21:41:13.267+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [6d4f4581] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T21:41:13.321+05:30 ERROR 58433 --- [bff-service] [ctor-http-nio-8] com.incident.bff.client.AiClient         : Failed to fetch analyses from ai-service
+
+org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:8090
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:139) ~[spring-webflux-6.2.18.jar:6.2.18]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to GET http://localhost:8090/api/v1/analyses [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:139) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1742) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:333) ~[reactor-netty-http-1.2.17.jar:1.2.17]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:174) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:495) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:443) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:598) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1742) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:600) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:546) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.transport.TransportConnector.lambda$null$7(TransportConnector.java:262) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:604) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:597) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:573) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:506) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:650) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:643) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:132) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:326) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:342) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: localhost/[0:0:0:0:0:0:0:1]:8090
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:628) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:1046) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-06-14T21:41:13.428+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [7adb4292] [02e49fb9-1] Response 200 OK
+2026-06-14T21:41:13.428+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [36c408b2] [ea71660c-1] Response 200 OK
+2026-06-14T21:41:13.428+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [66e271de] [51b970ad-1] Response 200 OK
+2026-06-14T21:41:13.530+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [2d4139a] [4b7b03bd-1] Response 200 OK
+2026-06-14T21:41:13.531+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-4] o.s.w.r.f.client.ExchangeFunctions       : [2c6e1b4] [64e7b71b-1] Response 200 OK
+2026-06-14T21:41:13.539+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [6d4db80f] [fa1f19fa-1] Response 200 OK
+2026-06-14T21:41:13.561+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [6d4f4581] [4849ea88-1] Response 200 OK
+2026-06-14T22:06:27.530+05:30  INFO 58433 --- [bff-service] [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 7 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(7)-CONNECTED(7)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 474], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 29], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
+2026-06-14T22:11:06.640+05:30 DEBUG 58433 --- [bff-service] [ioEventLoop-4-2] c.incident.bff.redis.RedisMessageRelay   : Relaying message from Redis alerts:live to STOMP /topic/alerts
+2026-06-14T22:11:26.897+05:30 DEBUG 58433 --- [bff-service] [ioEventLoop-4-2] c.incident.bff.redis.RedisMessageRelay   : Relaying message from Redis alerts:live to STOMP /topic/alerts
+2026-06-14T22:19:01.955+05:30 DEBUG 58433 --- [bff-service] [ioEventLoop-4-2] c.incident.bff.redis.RedisMessageRelay   : Relaying message from Redis alerts:live to STOMP /topic/alerts
+2026-06-14T22:19:08.889+05:30 DEBUG 58433 --- [bff-service] [ioEventLoop-4-2] c.incident.bff.redis.RedisMessageRelay   : Relaying message from Redis analysis:live to STOMP /topic/analysis
+2026-06-14T22:22:06.097+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-2] o.s.w.r.f.client.ExchangeFunctions       : [2b4f0fb2] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:22:06.098+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-5] o.s.w.r.f.client.ExchangeFunctions       : [73c297d2] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:22:06.098+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [28b9cdcd] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:22:06.322+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [5ff93a52] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:22:06.327+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [308dd4c5] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:22:06.328+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [560c16f] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:22:06.329+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [63d1b3ab] HTTP GET http://localhost:8090/api/v1/analyses
+2026-06-14T22:22:06.376+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [75ec3e29] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:22:06.774+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-4] o.s.w.r.f.client.ExchangeFunctions       : [63d1b3ab] [38832a4c-1] Response 404 NOT_FOUND
+2026-06-14T22:22:08.201+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [28b9cdcd] [7818eb51-1] Response 200 OK
+2026-06-14T22:22:08.202+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [2b4f0fb2] [94607fc0-1] Response 200 OK
+2026-06-14T22:22:08.201+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-8] o.s.w.r.f.client.ExchangeFunctions       : [5ff93a52] [2f750d0f-1] Response 200 OK
+2026-06-14T22:22:08.207+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [75ec3e29] [baa921a0-1] Response 200 OK
+2026-06-14T22:22:09.623+05:30 ERROR 58433 --- [bff-service] [ctor-http-nio-4] com.incident.bff.client.AiClient         : Failed to fetch analyses from ai-service
+
+org.springframework.web.reactive.function.client.WebClientResponseException$NotFound: 404 Not Found from GET http://localhost:8090/api/v1/analyses
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ 404 NOT_FOUND from GET http://localhost:8090/api/v1/analyses [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:214) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorReturn$ReturnSubscriber.onNext(FluxOnErrorReturn.java:162) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2096) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:413) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:464) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:518) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:933) ~[reactor-netty-http-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:166) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-06-14T22:22:10.804+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [73c297d2] [15434c64-1] Response 200 OK
+2026-06-14T22:22:10.802+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [308dd4c5] [149cfbfb-1] Response 200 OK
+2026-06-14T22:22:10.802+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [560c16f] [c5e55307-1] Response 200 OK
+2026-06-14T22:23:07.912+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [54ded477] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:07.912+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [5f784d30] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:07.912+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-9] o.s.w.r.f.client.ExchangeFunctions       : [2f93961f] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:08.040+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [612a907e] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:08.184+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [2c6e8733] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:08.186+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [51a3220f] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:08.190+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [737c3920] HTTP GET http://localhost:8090/api/v1/analyses
+2026-06-14T22:23:08.397+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [46e0ee51] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:08.772+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [737c3920] [0a058f21-1] Response 404 NOT_FOUND
+2026-06-14T22:23:08.862+05:30 ERROR 58433 --- [bff-service] [ctor-http-nio-2] com.incident.bff.client.AiClient         : Failed to fetch analyses from ai-service
+
+org.springframework.web.reactive.function.client.WebClientResponseException$NotFound: 404 Not Found from GET http://localhost:8090/api/v1/analyses
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ 404 NOT_FOUND from GET http://localhost:8090/api/v1/analyses [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:214) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorReturn$ReturnSubscriber.onNext(FluxOnErrorReturn.java:162) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2096) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:413) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:464) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:518) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:933) ~[reactor-netty-http-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:166) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-06-14T22:23:09.130+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [5f784d30] [7818eb51-2] Response 200 OK
+2026-06-14T22:23:09.130+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-8] o.s.w.r.f.client.ExchangeFunctions       : [54ded477] [2f750d0f-2] Response 200 OK
+2026-06-14T22:23:09.132+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [612a907e] [baa921a0-2] Response 200 OK
+2026-06-14T22:23:09.143+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [46e0ee51] [94607fc0-2] Response 200 OK
+2026-06-14T22:23:09.428+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [2f93961f] [149cfbfb-2] Response 200 OK
+2026-06-14T22:23:09.428+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [2c6e8733] [c5e55307-2] Response 200 OK
+2026-06-14T22:23:09.470+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [51a3220f] [15434c64-2] Response 200 OK
+2026-06-14T22:23:11.926+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [3f1d91d7] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:11.926+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-8] o.s.w.r.f.client.ExchangeFunctions       : [1f76e604] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:11.928+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [7d1f586f] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:11.933+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [5957acbd] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:11.938+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [3603c8d] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:11.941+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [768c1dd2] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:11.942+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [71d7ff4c] HTTP GET http://localhost:8090/api/v1/analyses
+2026-06-14T22:23:11.943+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [1501878f] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:11.970+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [71d7ff4c] [0a058f21-2] Response 404 NOT_FOUND
+2026-06-14T22:23:11.979+05:30 ERROR 58433 --- [bff-service] [ctor-http-nio-2] com.incident.bff.client.AiClient         : Failed to fetch analyses from ai-service
+
+org.springframework.web.reactive.function.client.WebClientResponseException$NotFound: 404 Not Found from GET http://localhost:8090/api/v1/analyses
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ 404 NOT_FOUND from GET http://localhost:8090/api/v1/analyses [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:214) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorReturn$ReturnSubscriber.onNext(FluxOnErrorReturn.java:162) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2096) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:413) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:464) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:518) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:933) ~[reactor-netty-http-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:166) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-06-14T22:23:12.066+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [3603c8d] [149cfbfb-3] Response 200 OK
+2026-06-14T22:23:12.066+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [768c1dd2] [15434c64-3] Response 200 OK
+2026-06-14T22:23:12.066+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [1f76e604] [c5e55307-3] Response 200 OK
+2026-06-14T22:23:12.146+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [7d1f586f] [baa921a0-3] Response 200 OK
+2026-06-14T22:23:12.146+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [5957acbd] [7818eb51-3] Response 200 OK
+2026-06-14T22:23:12.167+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-8] o.s.w.r.f.client.ExchangeFunctions       : [3f1d91d7] [2f750d0f-3] Response 200 OK
+2026-06-14T22:23:12.189+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [1501878f] [94607fc0-3] Response 200 OK
+2026-06-14T22:23:22.004+05:30 DEBUG 58433 --- [bff-service] [ioEventLoop-4-2] c.incident.bff.redis.RedisMessageRelay   : Relaying message from Redis alerts:live to STOMP /topic/alerts
+2026-06-14T22:23:22.314+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [170745f6] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:22.314+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [496266db] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:22.314+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-8] o.s.w.r.f.client.ExchangeFunctions       : [7c424857] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:22.315+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-8] o.s.w.r.f.client.ExchangeFunctions       : [51a84232] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:22.315+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-8] o.s.w.r.f.client.ExchangeFunctions       : [74b01096] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:22.315+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-8] o.s.w.r.f.client.ExchangeFunctions       : [5c5e9ec2] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:22.315+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-8] o.s.w.r.f.client.ExchangeFunctions       : [323075ee] HTTP GET http://localhost:8090/api/v1/analyses
+2026-06-14T22:23:22.323+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-8] o.s.w.r.f.client.ExchangeFunctions       : [219a0848] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:22.338+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [323075ee] [bf2e2c69-1] Response 404 NOT_FOUND
+2026-06-14T22:23:22.342+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [7c424857] [7818eb51-4] Response 200 OK
+2026-06-14T22:23:22.360+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [496266db] [baa921a0-4] Response 200 OK
+2026-06-14T22:23:22.361+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [74b01096] [149cfbfb-4] Response 200 OK
+2026-06-14T22:23:22.362+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-8] o.s.w.r.f.client.ExchangeFunctions       : [51a84232] [2f750d0f-4] Response 200 OK
+2026-06-14T22:23:22.362+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [5c5e9ec2] [c5e55307-4] Response 200 OK
+2026-06-14T22:23:22.347+05:30 ERROR 58433 --- [bff-service] [ctor-http-nio-3] com.incident.bff.client.AiClient         : Failed to fetch analyses from ai-service
+
+org.springframework.web.reactive.function.client.WebClientResponseException$NotFound: 404 Not Found from GET http://localhost:8090/api/v1/analyses
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ 404 NOT_FOUND from GET http://localhost:8090/api/v1/analyses [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:214) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorReturn$ReturnSubscriber.onNext(FluxOnErrorReturn.java:162) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2096) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:413) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:464) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:518) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:933) ~[reactor-netty-http-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:166) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-06-14T22:23:22.365+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [170745f6] [15434c64-4] Response 200 OK
+2026-06-14T22:23:22.395+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [219a0848] [94607fc0-4] Response 200 OK
+2026-06-14T22:23:32.445+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [119f83f3] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:32.446+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [19181e27] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:32.446+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [5c2042b2] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:32.447+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [32511bbc] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:32.447+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [5fbc961e] HTTP GET http://localhost:8090/api/v1/analyses
+2026-06-14T22:23:32.450+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-7] o.s.w.r.f.client.ExchangeFunctions       : [68c42e8] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:23:32.470+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-4] o.s.w.r.f.client.ExchangeFunctions       : [5fbc961e] [215fc901-1] Response 404 NOT_FOUND
+2026-06-14T22:23:32.477+05:30 ERROR 58433 --- [bff-service] [ctor-http-nio-4] com.incident.bff.client.AiClient         : Failed to fetch analyses from ai-service
+
+org.springframework.web.reactive.function.client.WebClientResponseException$NotFound: 404 Not Found from GET http://localhost:8090/api/v1/analyses
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ 404 NOT_FOUND from GET http://localhost:8090/api/v1/analyses [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:214) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorReturn$ReturnSubscriber.onNext(FluxOnErrorReturn.java:162) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2096) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:413) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:464) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:518) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:933) ~[reactor-netty-http-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:166) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-06-14T22:23:32.507+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [19181e27] [baa921a0-5] Response 200 OK
+2026-06-14T22:23:32.507+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [119f83f3] [7818eb51-5] Response 200 OK
+2026-06-14T22:23:32.521+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [5c2042b2] [149cfbfb-5] Response 200 OK
+2026-06-14T22:23:32.524+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [32511bbc] [c5e55307-5] Response 200 OK
+2026-06-14T22:23:32.582+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-8] o.s.w.r.f.client.ExchangeFunctions       : [68c42e8] [2f750d0f-5] Response 200 OK
+2026-06-14T22:23:38.959+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [561b4e1f] HTTP GET http://localhost:8082/api/v1/traces/9a9020830f5a4994aa1301bdd3154d33
+2026-06-14T22:23:38.962+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [55bfe22] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:38.965+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [4386e969] HTTP GET http://localhost:8090/api/v1/analyses/9a9020830f5a4994aa1301bdd3154d33
+2026-06-14T22:23:39.091+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [55bfe22] [15434c64-5] Response 200 OK
+2026-06-14T22:23:39.163+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [4386e969] [92dd35be-1] Response 202 ACCEPTED
+2026-06-14T22:23:39.629+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [561b4e1f] [94607fc0-5] Response 200 OK
+2026-06-14T22:23:54.314+05:30 DEBUG 58433 --- [bff-service] [ioEventLoop-4-2] c.incident.bff.redis.RedisMessageRelay   : Relaying message from Redis analysis:live to STOMP /topic/analysis
+2026-06-14T22:23:54.367+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [56b4c136] HTTP GET http://localhost:8082/api/v1/traces/9a9020830f5a4994aa1301bdd3154d33
+2026-06-14T22:23:54.367+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [7bb106e3] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:54.367+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [671c483c] HTTP GET http://localhost:8090/api/v1/analyses/9a9020830f5a4994aa1301bdd3154d33
+2026-06-14T22:23:54.385+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [671c483c] [15500ec4-1] Response 200 OK
+2026-06-14T22:23:54.396+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [7bb106e3] [149cfbfb-6] Response 200 OK
+2026-06-14T22:23:54.449+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [56b4c136] [baa921a0-6] Response 200 OK
+2026-06-14T22:23:54.456+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [6290abb8] HTTP GET http://localhost:8082/api/v1/traces/9a9020830f5a4994aa1301bdd3154d33
+2026-06-14T22:23:54.457+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [352314b3] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:23:54.457+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [4fe4d489] HTTP GET http://localhost:8090/api/v1/analyses/9a9020830f5a4994aa1301bdd3154d33
+2026-06-14T22:23:54.466+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [4fe4d489] [15500ec4-2] Response 200 OK
+2026-06-14T22:23:54.470+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [352314b3] [c5e55307-6] Response 200 OK
+2026-06-14T22:23:54.480+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [6290abb8] [7818eb51-6] Response 200 OK
+2026-06-14T22:29:54.772+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-2] o.s.w.r.f.client.ExchangeFunctions       : [9b20b6b] HTTP GET http://localhost:8082/api/v1/traces/9a9020830f5a4994aa1301bdd3154d33
+2026-06-14T22:29:54.802+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-2] o.s.w.r.f.client.ExchangeFunctions       : [6c257e76] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:29:54.804+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-2] o.s.w.r.f.client.ExchangeFunctions       : [53588746] HTTP GET http://localhost:8090/api/v1/analyses/9a9020830f5a4994aa1301bdd3154d33
+2026-06-14T22:29:55.236+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [53588746] [a3c459e7-1] Response 200 OK
+2026-06-14T22:29:55.485+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [9b20b6b] [870e51c3-1] Response 200 OK
+2026-06-14T22:29:55.754+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-8] o.s.w.r.f.client.ExchangeFunctions       : [6c257e76] [f703b97c-1] Response 200 OK
+2026-06-14T22:35:09.770+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-8] o.s.w.r.f.client.ExchangeFunctions       : [555a884d] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:35:09.769+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [6bc32f] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:35:09.769+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-3] o.s.w.r.f.client.ExchangeFunctions       : [312bf657] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:35:09.829+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [674175f1] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:35:09.831+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [4a6a7326] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:35:09.833+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [2343b67e] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:35:09.834+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [7def6b82] HTTP GET http://localhost:8090/api/v1/analyses
+2026-06-14T22:35:09.836+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-4] o.s.w.r.f.client.ExchangeFunctions       : [116d7733] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:35:10.016+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-8] o.s.w.r.f.client.ExchangeFunctions       : [7def6b82] [d13ff5ff-1] Response 404 NOT_FOUND
+2026-06-14T22:35:10.074+05:30 ERROR 58433 --- [bff-service] [ctor-http-nio-8] com.incident.bff.client.AiClient         : Failed to fetch analyses from ai-service
+
+org.springframework.web.reactive.function.client.WebClientResponseException$NotFound: 404 Not Found from GET http://localhost:8090/api/v1/analyses
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ 404 NOT_FOUND from GET http://localhost:8090/api/v1/analyses [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:214) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorReturn$ReturnSubscriber.onNext(FluxOnErrorReturn.java:162) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2096) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:413) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:464) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:518) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:933) ~[reactor-netty-http-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:166) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-06-14T22:35:10.487+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [4a6a7326] [9b6e9414-1] Response 200 OK
+2026-06-14T22:35:10.487+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [6bc32f] [65d21c7b-1] Response 200 OK
+2026-06-14T22:35:10.487+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-4] o.s.w.r.f.client.ExchangeFunctions       : [312bf657] [3e4225f3-1] Response 200 OK
+2026-06-14T22:35:10.487+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [2343b67e] [fcc97bb4-1] Response 200 OK
+2026-06-14T22:35:10.487+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [674175f1] [b81323fe-1] Response 200 OK
+2026-06-14T22:35:10.488+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [555a884d] [56e93e87-1] Response 200 OK
+2026-06-14T22:35:10.487+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [116d7733] [a07bd5d1-1] Response 200 OK
+2026-06-14T22:35:12.666+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-3] o.s.w.r.f.client.ExchangeFunctions       : [775eab5e] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:35:12.666+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [28963b51] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:35:12.666+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [3266d8d9] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:35:12.667+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [77e2ecae] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:35:12.668+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [694e57b7] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:35:12.668+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [45f7b43e] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:35:12.670+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [41530c49] HTTP GET http://localhost:8090/api/v1/analyses
+2026-06-14T22:35:12.671+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-1] o.s.w.r.f.client.ExchangeFunctions       : [21341f51] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:35:12.682+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-8] o.s.w.r.f.client.ExchangeFunctions       : [41530c49] [d13ff5ff-2] Response 404 NOT_FOUND
+2026-06-14T22:35:12.687+05:30 ERROR 58433 --- [bff-service] [ctor-http-nio-8] com.incident.bff.client.AiClient         : Failed to fetch analyses from ai-service
+
+org.springframework.web.reactive.function.client.WebClientResponseException$NotFound: 404 Not Found from GET http://localhost:8090/api/v1/analyses
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ 404 NOT_FOUND from GET http://localhost:8090/api/v1/analyses [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:214) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorReturn$ReturnSubscriber.onNext(FluxOnErrorReturn.java:162) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2096) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:413) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:464) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:518) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:933) ~[reactor-netty-http-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:166) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-06-14T22:35:12.722+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [3266d8d9] [65d21c7b-2] Response 200 OK
+2026-06-14T22:35:12.723+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-4] o.s.w.r.f.client.ExchangeFunctions       : [77e2ecae] [3e4225f3-2] Response 200 OK
+2026-06-14T22:35:12.726+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [28963b51] [9b6e9414-2] Response 200 OK
+2026-06-14T22:35:12.726+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [45f7b43e] [56e93e87-2] Response 200 OK
+2026-06-14T22:35:12.727+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [694e57b7] [fcc97bb4-2] Response 200 OK
+2026-06-14T22:35:12.734+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [775eab5e] [b81323fe-2] Response 200 OK
+2026-06-14T22:35:12.777+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [21341f51] [a07bd5d1-2] Response 200 OK
+2026-06-14T22:36:08.707+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-3] o.s.w.r.f.client.ExchangeFunctions       : [7fb7667d] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:36:08.707+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [78fffab5] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:36:08.707+05:30 DEBUG 58433 --- [bff-service] [nio-8080-exec-6] o.s.w.r.f.client.ExchangeFunctions       : [585bf204] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:36:08.708+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [74183803] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:36:08.709+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [2ee8724c] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:36:08.709+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [5ad11b59] HTTP GET http://localhost:8083/api/v1/alerts
+2026-06-14T22:36:08.710+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [5dfc78e4] HTTP GET http://localhost:8090/api/v1/analyses
+2026-06-14T22:36:08.715+05:30 DEBUG 58433 --- [bff-service] [io-8080-exec-10] o.s.w.r.f.client.ExchangeFunctions       : [68919b78] HTTP GET http://localhost:8082/api/v1/traces
+2026-06-14T22:36:08.729+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [5dfc78e4] [f2c48231-1] Response 404 NOT_FOUND
+2026-06-14T22:36:08.735+05:30 ERROR 58433 --- [bff-service] [ctor-http-nio-2] com.incident.bff.client.AiClient         : Failed to fetch analyses from ai-service
+
+org.springframework.web.reactive.function.client.WebClientResponseException$NotFound: 404 Not Found from GET http://localhost:8090/api/v1/analyses
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ 404 NOT_FOUND from GET http://localhost:8090/api/v1/analyses [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:324) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:214) ~[spring-webflux-6.2.18.jar:6.2.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxOnErrorReturn$ReturnSubscriber.onNext(FluxOnErrorReturn.java:162) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2096) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144) ~[reactor-core-3.7.18.jar:3.7.18]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:413) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:464) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:518) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:933) ~[reactor-netty-http-1.2.17.jar:1.2.17]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115) ~[reactor-netty-core-1.2.17.jar:1.2.17]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:166) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48) ~[netty-codec-http-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325) ~[netty-codec-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:171) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.132.Final.jar:4.1.132.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-06-14T22:36:08.750+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-5] o.s.w.r.f.client.ExchangeFunctions       : [74183803] [b81323fe-3] Response 200 OK
+2026-06-14T22:36:08.751+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-6] o.s.w.r.f.client.ExchangeFunctions       : [2ee8724c] [9b6e9414-3] Response 200 OK
+2026-06-14T22:36:08.751+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-7] o.s.w.r.f.client.ExchangeFunctions       : [5ad11b59] [fcc97bb4-3] Response 200 OK
+2026-06-14T22:36:08.751+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-3] o.s.w.r.f.client.ExchangeFunctions       : [585bf204] [56e93e87-3] Response 200 OK
+2026-06-14T22:36:08.755+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-4] o.s.w.r.f.client.ExchangeFunctions       : [7fb7667d] [3e4225f3-3] Response 200 OK
+2026-06-14T22:36:08.762+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-2] o.s.w.r.f.client.ExchangeFunctions       : [78fffab5] [65d21c7b-3] Response 200 OK
+2026-06-14T22:36:08.767+05:30 DEBUG 58433 --- [bff-service] [ctor-http-nio-1] o.s.w.r.f.client.ExchangeFunctions       : [68919b78] [a07bd5d1-3] Response 200 OK
+2026-06-14T22:36:27.585+05:30  INFO 58433 --- [bff-service] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 10 total, 0 closed abnormally (0 connect failure, 0 send limit, 2 transport error)], stompSubProtocol[processed CONNECT(10)-CONNECTED(10)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 546], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 38], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 3]

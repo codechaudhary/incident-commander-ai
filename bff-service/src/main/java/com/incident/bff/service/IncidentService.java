@@ -25,16 +25,21 @@ public class IncidentService {
     }
 
     public Mono<IncidentViewResponse> getIncident(String traceId) {
-        Mono<JsonNode> traceMono = traceClient.getTraceById(traceId)
-                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Trace not found")));
-        
-        Mono<JsonNode> alertMono = alertClient.getAlertByTraceId(traceId)
-                .defaultIfEmpty(new ObjectMapper().createObjectNode());
-        
-        Mono<JsonNode> analysisMono = aiClient.getAnalysisByTraceId(traceId)
-                .defaultIfEmpty(new ObjectMapper().createObjectNode());
+        return traceClient.getTraceById(traceId)
+                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Trace not found")))
+                .flatMap(traceNode -> {
+                    Mono<JsonNode> alertMono = alertClient.getAlertByTraceId(traceId)
+                            .defaultIfEmpty(new ObjectMapper().createObjectNode());
 
-        return Mono.zip(traceMono, alertMono, analysisMono)
+                    Mono<JsonNode> analysisMono = aiClient.getAnalysisByTraceId(traceId)
+                            .switchIfEmpty(
+                                aiClient.triggerAnalysis(traceId, traceNode)
+                                    .defaultIfEmpty(new ObjectMapper().createObjectNode())
+                            )
+                            .defaultIfEmpty(new ObjectMapper().createObjectNode());
+
+                    return Mono.zip(Mono.just(traceNode), alertMono, analysisMono);
+                })
                 .map(tuple -> new IncidentViewResponse(
                         tuple.getT1(),
                         tuple.getT2().isEmpty() ? null : tuple.getT2(),

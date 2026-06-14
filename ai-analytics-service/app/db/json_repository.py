@@ -1,8 +1,9 @@
+from __future__ import annotations
 import asyncio
 import json
 from contextlib import asynccontextmanager
 from dataclasses import asdict, dataclass, field
-from datetime import UTC, datetime
+from datetime import timezone, datetime
 from pathlib import Path
 from uuid import uuid4
 
@@ -24,7 +25,7 @@ class JsonAnalysisRecord:
     model_used: str | None = None
     prompt_tokens: int | None = None
     completion_tokens: int | None = None
-    created_at: datetime = field(default_factory=lambda: datetime.now(UTC))
+    created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
     completed_at: datetime | None = None
 
     @classmethod
@@ -52,6 +53,7 @@ class JsonAnalysisStore:
     def __init__(self, path: str) -> None:
         self.path = Path(path)
         self.lock = asyncio.Lock()
+        self._cache: list[JsonAnalysisRecord] | None = None
 
     @asynccontextmanager
     async def repository(self):
@@ -78,8 +80,17 @@ class JsonAnalysisRepository:
             matches = [row for row in rows if row.trace_id == trace_id]
             existing = max(matches, key=lambda row: row.created_at, default=None)
             active_statuses = {AnalysisStatus.PENDING.value, AnalysisStatus.PROCESSING.value}
+
+            # Only reuse an active record if it's fresh (< 3 minutes old)
+            # Stale PENDING/PROCESSING records are considered dead and we create a new one
             if existing and existing.status in active_statuses:
-                return existing
+                age_seconds = (datetime.now(timezone.utc) - existing.created_at.replace(tzinfo=timezone.utc)).total_seconds()
+                if age_seconds < 180:
+                    return existing
+                # Stale — mark it failed so we create a fresh one
+                existing.status = AnalysisStatus.FAILED.value
+                existing.root_cause = "Timed out waiting for processing"
+                self._save(rows)
 
             row = JsonAnalysisRecord(
                 id=str(uuid4()),
@@ -123,7 +134,7 @@ class JsonAnalysisRepository:
             row.model_used = model_used
             row.prompt_tokens = prompt_tokens
             row.completion_tokens = completion_tokens
-            row.completed_at = datetime.now(UTC)
+            row.completed_at = datetime.now(timezone.utc)
             self._save(rows)
             return row
 
@@ -134,7 +145,7 @@ class JsonAnalysisRepository:
             if row:
                 row.status = AnalysisStatus.FAILED.value
                 row.root_cause = message[:2000]
-                row.completed_at = datetime.now(UTC)
+                row.completed_at = datetime.now(timezone.utc)
                 self._save(rows)
 
     async def get_by_analysis_id(self, analysis_id: str) -> JsonAnalysisRecord | None:
@@ -142,12 +153,17 @@ class JsonAnalysisRepository:
             return self._find_by_analysis_id(self._load(), analysis_id)
 
     def _load(self) -> list[JsonAnalysisRecord]:
+        if self.store._cache is not None:
+            return self.store._cache
         if not self.store.path.exists():
-            return []
+            self.store._cache = []
+            return self.store._cache
         with self.store.path.open(encoding="utf-8") as file:
-            return [JsonAnalysisRecord.from_dict(item) for item in json.load(file)]
+            self.store._cache = [JsonAnalysisRecord.from_dict(item) for item in json.load(file)]
+            return self.store._cache
 
     def _save(self, rows: list[JsonAnalysisRecord]) -> None:
+        self.store._cache = rows
         self.store.path.parent.mkdir(parents=True, exist_ok=True)
         with self.store.path.open("w", encoding="utf-8") as file:
             json.dump([row.to_dict() for row in rows], file, indent=2)
