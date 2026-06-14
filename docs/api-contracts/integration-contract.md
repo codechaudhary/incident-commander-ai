@@ -1327,7 +1327,7 @@ export interface WsTraceMessage {
 ```
 trace-service/
 ├── src/main/java/com/incident/trace/
-│   ├── TraceServiceApplication.java
+│   ├── com.trace-service.TraceServiceApplication.java
 │   ├── config/
 │   │   ├── KafkaProducerConfig.java
 │   │   └── DatabaseConfig.java
