@@ -98,7 +98,7 @@ Response:
 }
 ```
 
-If PostgreSQL is unavailable, this endpoint fails.
+If PostgreSQL is unavailable, this endpoint returns `503 Service Unavailable`.
 
 ### `GET /api/v1/analyses/{trace_id}`
 
@@ -295,6 +295,8 @@ Settings are loaded from `.env`.
 | `API_PREFIX` | `/api/v1` | Prefix for API routes |
 | `HOST` | `0.0.0.0` | Uvicorn bind host |
 | `PORT` | `8090` | Uvicorn bind port |
+| `STORAGE_BACKEND` | `json` | Persistence backend: `json` or `postgresql` |
+| `JSON_DATABASE_PATH` | `data/ai_analysis.json` | Local JSON file used when `STORAGE_BACKEND=json` |
 | `DATABASE_URL` | Postgres DSN | PostgreSQL connection URL |
 | `KAFKA_BOOTSTRAP_SERVERS` | `kafka:9092` | Kafka broker list |
 | `KAFKA_TRACE_TOPIC` | `trace-events` | Trace event topic |
@@ -302,13 +304,14 @@ Settings are loaded from `.env`.
 | `KAFKA_CONSUMER_ENABLED` | `false` in local env | Enables Kafka background consumer |
 | `REDIS_URL` | `redis://redis:6379` | Redis connection URL |
 | `REDIS_ANALYSIS_CHANNEL` | `analysis:live` | Completed-analysis Pub/Sub channel |
+| `REDIS_PUBLISH_ENABLED` | `false` | Enables Redis publish on completed analyses |
 | `LLM_PROVIDER` | `opencode` in `.env` | `opencode` or `stub` |
 | `OPENCODE_API_KEY` | empty | Required for OpenCode mode |
 | `OPENCODE_BASE_URL` | `https://opencode.ai/zen/v1` | OpenCode API base URL |
 | `OPENCODE_MODELS` | fallback list | Comma-separated model fallback order |
-| `LLM_MAX_TOKENS` | `500` | Max completion tokens |
+| `LLM_MAX_TOKENS` | `4500` | Max completion tokens |
 | `LLM_TEMPERATURE` | `0.2` | Model temperature |
-| `LLM_TIMEOUT_SECONDS` | `30` | HTTP timeout |
+| `LLM_TIMEOUT_SECONDS` | `180` | HTTP timeout |
 
 ## Local Development
 
@@ -324,10 +327,24 @@ python app/main.py
 Useful local settings:
 
 ```env
+STORAGE_BACKEND=json
+JSON_DATABASE_PATH=data/ai_analysis.json
+DATABASE_URL=postgresql://incidents:incidents@localhost:5432/incidents
 KAFKA_CONSUMER_ENABLED=false
 LLM_PROVIDER=stub
 PORT=8090
 ```
+
+Switch to PostgreSQL later with:
+
+```env
+STORAGE_BACKEND=postgresql
+DATABASE_URL=postgresql://incidents:incidents@localhost:5432/incidents
+```
+
+For VS Code database browsing, install a PostgreSQL client extension such as Microsoft
+PostgreSQL (`ms-ossdata.vscode-pgsql`) or SQLTools plus its PostgreSQL driver, then connect with
+the same `DATABASE_URL` values from `.env`.
 
 Use `LLM_PROVIDER=opencode` and set `OPENCODE_API_KEY` when testing real model calls.
 

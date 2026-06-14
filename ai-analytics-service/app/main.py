@@ -11,13 +11,16 @@ if __package__ in {None, ""}:
 
 import structlog
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from sqlalchemy import text
+from sqlalchemy.exc import SQLAlchemyError
 
 from app.api.routes.analysis import router as analysis_router
 from app.core.config import get_settings
 from app.core.errors import NotFoundError, not_found_handler, unhandled_exception_handler
 from app.core.logging import configure_logging
+from app.db.json_repository import JsonAnalysisStore
+from app.db.repository import AnalysisRepository
 from app.db.session import AsyncSessionLocal, engine
 from app.kafka.consumer import TraceEventConsumer
 from app.models.schemas import HealthResponse
@@ -31,13 +34,25 @@ logger = structlog.get_logger(__name__)
 
 
 @asynccontextmanager
+async def postgres_repository_factory():
+    async with AsyncSessionLocal() as session:
+        yield AnalysisRepository(session)
+
+
+@asynccontextmanager
 async def lifespan(app: FastAPI):
     import app.main_state as state
 
     publisher = AnalysisPublisher(settings)
     llm_service = LLMService(settings)
+    json_store = JsonAnalysisStore(settings.json_database_path)
+    repository_factory = (
+        json_store.repository
+        if settings.storage_backend == "json"
+        else postgres_repository_factory
+    )
     analysis_service = AnalysisService(
-        session_factory=AsyncSessionLocal,
+        repository_factory=repository_factory,
         llm_service=llm_service,
         publisher=publisher,
     )
@@ -79,10 +94,17 @@ async def health() -> HealthResponse:
 
 @app.get("/ready", response_model=HealthResponse)
 async def ready() -> HealthResponse:
-    async with engine.connect() as connection:
-        await connection.execute(text("SELECT 1"))
+    if settings.storage_backend == "json":
+        return HealthResponse(status="ok")
+
+    try:
+        async with engine.connect() as connection:
+            await connection.execute(text("SELECT 1"))
+    except (OSError, SQLAlchemyError) as exc:
+        logger.warning("readiness_check_failed", error=str(exc))
+        raise HTTPException(status_code=503, detail="PostgreSQL is not ready") from exc
     return HealthResponse(status="ok")
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host=settings.host, port=8080)
+    uvicorn.run(app, host=settings.host, port=settings.port)

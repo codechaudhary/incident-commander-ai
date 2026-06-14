@@ -1,7 +1,9 @@
-import structlog
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
+from collections.abc import Callable
+from contextlib import AbstractAsyncContextManager
 
-from app.db.repository import AnalysisRepository, to_analysis_dto
+import structlog
+
+from app.db.repository import to_analysis_dto
 from app.models.enums import TraceStatus
 from app.models.schemas import AnalysisDto, PendingAnalysisResponse, TraceEventPayload
 from app.redis.publisher import AnalysisPublisher
@@ -14,17 +16,17 @@ class AnalysisService:
     def __init__(
         self,
         *,
-        session_factory: async_sessionmaker[AsyncSession],
+        repository_factory: Callable[[], AbstractAsyncContextManager],
         llm_service: LLMService,
         publisher: AnalysisPublisher,
     ) -> None:
-        self.session_factory = session_factory
+        self.repository_factory = repository_factory
         self.llm_service = llm_service
         self.publisher = publisher
 
     async def get_by_trace_id(self, trace_id: str) -> AnalysisDto | PendingAnalysisResponse | None:
-        async with self.session_factory() as session:
-            row = await AnalysisRepository(session).get_by_trace_id(trace_id)
+        async with self.repository_factory() as repository:
+            row = await repository.get_by_trace_id(trace_id)
             if row is None:
                 return None
             if row.status in {"PENDING", "PROCESSING"}:
@@ -37,8 +39,8 @@ class AnalysisService:
             return to_analysis_dto(row)
 
     async def trigger(self, trace_id: str, alert_id: str | None = None) -> PendingAnalysisResponse:
-        async with self.session_factory() as session:
-            row = await AnalysisRepository(session).create_pending(trace_id, alert_id)
+        async with self.repository_factory() as repository:
+            row = await repository.create_pending(trace_id, alert_id)
             return PendingAnalysisResponse(
                 analysis_id=row.analysis_id,
                 trace_id=row.trace_id,
@@ -55,15 +57,13 @@ class AnalysisService:
             logger.info("trace_skipped_success", trace_id=payload.trace_id)
             return
 
-        async with self.session_factory() as session:
-            repository = AnalysisRepository(session)
+        async with self.repository_factory() as repository:
             row = await repository.create_pending(payload.trace_id, alert_id)
             await repository.mark_processing(row.analysis_id)
 
         try:
             llm_response = await self.llm_service.analyze(payload)
-            async with self.session_factory() as session:
-                repository = AnalysisRepository(session)
+            async with self.repository_factory() as repository:
                 completed = await repository.mark_completed(
                     row.analysis_id,
                     llm_response.result,
@@ -79,6 +79,6 @@ class AnalysisService:
                 analysis_id=row.analysis_id,
             )
         except Exception as exc:
-            async with self.session_factory() as session:
-                await AnalysisRepository(session).mark_failed(row.analysis_id, str(exc))
+            async with self.repository_factory() as repository:
+                await repository.mark_failed(row.analysis_id, str(exc))
             logger.exception("analysis_failed", trace_id=payload.trace_id, error=str(exc))

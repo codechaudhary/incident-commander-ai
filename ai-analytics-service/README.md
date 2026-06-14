@@ -24,3 +24,22 @@ dependencies using Python 3.14 wheels, and creates `.env` from `.env.example` wh
 Set `KAFKA_CONSUMER_ENABLED=true` only when Kafka is running.
 Set `OPENCODE_API_KEY` in `.env`; models are attempted in `OPENCODE_MODELS` order.
 Configure the bind address with `HOST` and `PORT`.
+Set `REDIS_PUBLISH_ENABLED=true` only when Redis is running.
+
+The service can run with mock JSON storage or PostgreSQL:
+
+```env
+STORAGE_BACKEND=json
+JSON_DATABASE_PATH=data/ai_analysis.json
+```
+
+Use `STORAGE_BACKEND=postgresql` when PostgreSQL is ready.
+
+Run the full local analysis flow without Kafka:
+
+```powershell
+.\venv\Scripts\python.exe .\scripts\process_mock_trace.py --provider stub
+```
+
+For a local Postgres server, keep `DATABASE_URL` pointed at `localhost`. Use the Docker service
+name `postgres` only when this service is running inside the same Docker network as Postgres.
