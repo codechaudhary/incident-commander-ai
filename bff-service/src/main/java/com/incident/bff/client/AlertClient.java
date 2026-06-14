@@ -44,4 +44,16 @@ public class AlertClient {
                     return Mono.empty();
                 });
     }
+
+    public Mono<JsonNode> updateAlertStatus(String alertId, JsonNode body) {
+        return alertWebClient.patch()
+                .uri("/api/v1/alerts/{alertId}/status", alertId)
+                .bodyValue(body)
+                .retrieve()
+                .bodyToMono(JsonNode.class)
+                .onErrorResume(e -> {
+                    log.error("Failed to update alert {} status in alert-service", alertId, e);
+                    return Mono.error(e);
+                });
+    }
 }
